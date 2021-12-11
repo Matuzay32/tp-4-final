@@ -11,10 +11,10 @@ router.get("/searchName/", async(req,res)=>{
     console.log(req.query);
     const busqueda =req.query
 
-    const contactos = await Contactos.findAll({
+    const contactos = await Contactos.findAll({where:busqueda},
 
-        attributes: ["id", "nombre", "apellido", "cargo", 'email', "direccion", "paiseId", "ciudadeId", "interes", "companias"],
-        include: [
+        {attributes: ["id", "nombre", "apellido", "cargo", 'email', "direccion", "paiseId", "ciudadeId", "interes", "companias"]},
+        {include: [
 
             {
                 model: Paises,
@@ -38,7 +38,7 @@ router.get("/searchName/", async(req,res)=>{
             },
 
         ]
-    },{where:busqueda});
+    });
     
    res.json(contactos); 
  
