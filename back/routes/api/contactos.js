@@ -7,10 +7,10 @@ const ROL_ADMIN   = 1;
 //obtengo el DB
 const {Contactos,ContactoCanales,Ciudades,Paises,Canales,Companias,Prueba, Provincias} = require("../../db");
 
-router.get("/searchName/", async(req,res)=>{
-    console.log(req.query);
-
-    const contactos = await Contactos.findAll({where:{nombre:req.query.nombre},},{
+router.get("/searchName", async(req,res)=>{
+    var busqueda= req.query;
+    console.log(busqueda);
+    const contactos = await Contactos.findAll({where:busqueda,},{
 
         attributes: ["id", "nombre", "apellido", "cargo", 'email', "direccion", "paiseId", "ciudadeId", "interes", "companias"],
         include: [
