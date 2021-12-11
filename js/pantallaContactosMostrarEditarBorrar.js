@@ -17,6 +17,10 @@ var editar_compania        =  document.getElementById("companiaNuevoContacto");
 var btnEditarContacto      =  document.getElementById("editarContacto");
 var nombreContactoBusqueda =  document.getElementById("nombreContactoBusqueda");
 var cargoBusqueda          =  document.getElementById("cargoBusqueda");
+var paisBusqueda           =  document.getElementById("paisBusqueda");
+var ciudadBusqueda         =  document.getElementById("ciudadBusqueda");
+var companiaBusqueda       =  document.getElementById("companiaBusqueda");
+var interesBusqueda        =  document.getElementById("rangeMenuBusqueda");
 //TODO: estoy trabajando para obtener los valores de la busqueda
 
 document.getElementById("botonDeBusqueda").addEventListener("click",()=>{
@@ -26,11 +30,29 @@ document.getElementById("botonDeBusqueda").addEventListener("click",()=>{
     setTimeout(() => {
 
         let  nombreB  = `nombre=${nombreContactoBusqueda.value}`;
-        let  cargoB  = `cargo=${cargoBusqueda.value}`;
-        console.log( nombreContactoBusqueda.value,cargoBusqueda.value);
+        let  cargoB   = `cargo=${cargoBusqueda.value}`;
+        let  paisB    = `paiseId=${paisBusqueda.value}`; 
+        let ciudadB   = `ciudadeId=${ciudadBusqueda.value}`;
+        let compaB    = `companias=${companiaBusqueda.value}`;
+        let interesB  =  `interes=${interesBusqueda.value}`;  
+        console.log(
+				nombreContactoBusqueda.value,
+				cargoBusqueda.value,
+				paisBusqueda.value,
+				ciudadBusqueda.value,
+				companiaBusqueda.value,
+				interesBusqueda.value
+			);
 
 
-        fetchContactosBusqueda(nombreB,cargoB);
+        fetchContactosBusqueda(
+				nombreB,
+				cargoB,
+				paisB,
+				ciudadB,
+				compaB,
+				interesB
+			);
         
     }, 300);
 
@@ -506,12 +528,13 @@ document.getElementById("editarContacto").addEventListener("click",(e)=>{
 });
 
 //TODO: estoy haciendo la busqueda
-let fetchContactosBusqueda =  (nombreBusqueda,cargoBusqueda) =>{
-    fetch(`http://localhost:3000/api/contactos/searchName?${cargoBusqueda}`)
+let fetchContactosBusqueda =  (nombreBusqueda,cargoBusqueda,paisBusqueda,ciudadBusqueda,compaBusqueda,interesBusqueda) =>{
+    fetch(`http://localhost:3000/api/contactos/searchName?${interesBusqueda}`)
     .then(response => response.json())
       .then((data) =>{
         //let muestra = contactoDatos(data);
-    console.log(data)
+        console.log(`http://localhost:3000/api/contactos/searchName?${interesBusqueda}`)
+         console.log(data);
       });
 }
 

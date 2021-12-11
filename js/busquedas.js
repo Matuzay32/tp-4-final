@@ -98,7 +98,7 @@ var trayendoCanalesMetodoGetSelect  = (data)=>{
       
 
       let optionElement =document.createElement("option");
-      canalMenu.appendChild(optionElement);
+      // canalMenu.appendChild(optionElement);
 
       optionElement.text =data[index].nombre;
       optionElement.value =data[index].id;
