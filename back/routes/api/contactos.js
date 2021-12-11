@@ -7,46 +7,45 @@ const ROL_ADMIN   = 1;
 //obtengo el DB
 const {Contactos,ContactoCanales,Ciudades,Paises,Canales,Companias,Prueba, Provincias} = require("../../db");
 
-router.get("/searchName", async(req,res)=>{
-    var busqueda= req.query;
-    console.log(busqueda);
-    const contactos = await Contactos.findAll({where:busqueda,},{ 
+router.get("/searchName/", async(req,res)=>{
+    console.log(req.query);
+    const busqueda =req.query
 
-        attributes: ["id","nombre","apellido","cargo",'email',"direccion", "paiseId","ciudadeId","interes","companias"],
-       include: [
-           
+    const contactos = await Contactos.findAll({
+
+        attributes: ["id", "nombre", "apellido", "cargo", 'email', "direccion", "paiseId", "ciudadeId", "interes", "companias"],
+        include: [
+
             {
-               model:Paises,
-               attributes: ['id','pais']
-           } ,
-           {
-               model:Provincias,
-               attributes: ['id','provincia']
-           },
-           {
-               model:Ciudades,
-               attributes: ['id','ciudad']
-           },
-           {
-               model:Companias,
-               attributes: ['id','compania']
-           },
-           {
-               model:Canales,
-               attributes: ['id','nombre']
-           },
-        
-         ]
-     });
-   
-  res.json(contactos); 
+                model: Paises,
+                attributes: ['id', 'pais']
+            },
+            {
+                model: Provincias,
+                attributes: ['id', 'provincia']
+            },
+            {
+                model: Ciudades,
+                attributes: ['id', 'ciudad']
+            },
+            {
+                model: Companias,
+                attributes: ['id', 'compania']
+            },
+            {
+                model: Canales,
+                attributes: ['id', 'nombre']
+            },
 
+        ]
+    },{where:busqueda});
     
-  
+   res.json(contactos); 
  
 
    
 });
+
 
 
 router.get("/", async(req,res)=>{
