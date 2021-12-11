@@ -7,6 +7,48 @@ const ROL_ADMIN   = 1;
 //obtengo el DB
 const {Contactos,ContactoCanales,Ciudades,Paises,Canales,Companias,Prueba, Provincias} = require("../../db");
 
+router.get("/searchName/:nombre ", async(req,res)=>{
+
+    const contactos = await Contactos.findAll(
+        { 
+            where: { 
+                nombre: req.params.nombre 
+            
+            }, }, {
+
+        attributes: ["id", "nombre", "apellido", "cargo", 'email', "direccion", "paiseId", "ciudadeId", "interes", "companias"],
+        include: [
+
+            {
+                model: Paises,
+                attributes: ['id', 'pais']
+            },
+            {
+                model: Provincias,
+                attributes: ['id', 'provincia']
+            },
+            {
+                model: Ciudades,
+                attributes: ['id', 'ciudad']
+            },
+            {
+                model: Companias,
+                attributes: ['id', 'compania']
+            },
+            {
+                model: Canales,
+                attributes: ['id', 'nombre']
+            },
+
+        ]
+    });
+    
+   res.json(contactos); 
+ 
+
+   
+});
+
 
 
 router.get("/", async(req,res)=>{
