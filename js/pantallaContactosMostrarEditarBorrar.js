@@ -21,6 +21,7 @@ var paisBusqueda           =  document.getElementById("paisBusqueda");
 var ciudadBusqueda         =  document.getElementById("ciudadBusqueda");
 var companiaBusqueda       =  document.getElementById("companiaBusqueda");
 var interesBusqueda        =  document.getElementById("rangeMenuBusqueda");
+var busquedaGeneral        =  document.getElementById("busquedaGeneral");
 var arrayBusqueda          =  [];
 //TODO: estoy trabajando para obtener los valores de la busqueda
 
@@ -89,7 +90,22 @@ document.getElementById("botonDeBusqueda").addEventListener("click",async (ev)=>
       const  datosFiltrados= datos.filter((e)=>{
 
 
-               return e.interes==interesBusqueda.value|| e.ciudade.id ==ciudadBusqueda.value || e.paise.id ==paisBusqueda.value ||e.cargo ==cargoBusqueda.value || e.nombre ==nombreContactoBusqueda.value 
+          return (
+					e.compania.compania ==busquedaGeneral.value||
+					e.interes == busquedaGeneral.value ||
+					e.ciudade.ciudad == busquedaGeneral.value ||
+					e.paise.pais == busquedaGeneral.value ||
+					e.cargo == busquedaGeneral.value ||
+					e.nombre == busquedaGeneral.value ||
+					e.compania.id == companiaBusqueda.value ||
+					e.interes == interesBusqueda.value ||
+					e.ciudade.id == ciudadBusqueda.value ||
+					e.paise.id == paisBusqueda.value ||
+					e.cargo == cargoBusqueda.value ||
+					e.nombre == nombreContactoBusqueda.value
+				); 
+           
+               //e.compania.compania ||  e.interes==busquedaGeneral.value|| e.ciudade.ciudad ==busquedaGeneral.value || e.paise.pais ==busquedaGeneral.value ||e.cargo ==busquedaGeneral.value || e.nombre ==busquedaGeneral.value 
             })
         contactoDatos(datosFiltrados);
     }, 300);
