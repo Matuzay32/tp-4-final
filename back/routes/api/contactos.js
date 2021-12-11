@@ -46,7 +46,6 @@ router.get("/searchName", async(req,res)=>{
 });
 
 
-
 router.get("/", async(req,res)=>{
 
     const contactos =  await Contactos.findAll({ 
