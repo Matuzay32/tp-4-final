@@ -6,6 +6,7 @@ var loginLink           = document.getElementById("loginLink");
 var registrarseLink     = document.getElementById("registrarseLink");
 var sombraMenu          = document.getElementById("sombraMenu");        
 var companiasLink       = document.getElementById("companiasLink"); 
+let botonDeBusqueda     = document.getElementById("botonDeBusqueda");
                                              
 
 //secciones 
@@ -33,6 +34,10 @@ var arrSections         = TodasLasSecciones(contactosSection, loginSection,sombr
 
 
 //event Listeners de los links
+botonDeBusqueda.addEventListener  ("click", () => {
+    menuContactos(arrSections);
+
+})
 
 contactosLink.addEventListener  ("click", () => {
     menuContactos(arrSections);
@@ -60,7 +65,7 @@ menuPaisesCiudades(arrSections);
 
 
 
-//funciones para ocultar las secciones 
+//funciones para mostrar las secciones 
 
 var menuContactos       = (arraySecciones) => {
 

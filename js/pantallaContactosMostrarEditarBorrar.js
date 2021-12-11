@@ -1,21 +1,37 @@
 //Variables para editar contacto vienen del formulario
-var editar_nombre      =  document.getElementById("nombreMenuNuevoContacto");   
-var editar_apellido    =  document.getElementById("apellidoMenuNuevoContacto"); 
-var editar_cargo       =  document.getElementById("cargoMenuNuevoContacto"); 
-var editar_email       =  document.getElementById("emailMenuNuevoContacto"); 
-var editar_direccion   =  document.getElementById("direccionMenuNuevoContacto");
-var editar_interes     =  document.getElementById("rangeMenuNuevoContacto");
-var editar_valor       =  document.getElementById("valor");
-var editar_pais        =  document.getElementById("paisMenuNuevoContacto");
-var editar_provincia   =  document.getElementById("provinciaMenuNuevoContacto");
-var editar_ciudad      =  document.getElementById("ciudadMenuNuevoContacto");
-var editar_canal       =  document.getElementById("canalMenuNuevoContacto");
-var editar_canal2      =  document.getElementById("canalMenuNuevoContacto2");
-var editar_datosCanal01=  document.getElementById("datosCanal01");
-var editar_datosCanal02=  document.getElementById("datosCanal02");
-var editar_compania    =  document.getElementById("companiaNuevoContacto");
-var btnEditarContacto  =  document.getElementById("editarContacto");
+var editar_nombre          =  document.getElementById("nombreMenuNuevoContacto");   
+var editar_apellido        =  document.getElementById("apellidoMenuNuevoContacto"); 
+var editar_cargo           =  document.getElementById("cargoMenuNuevoContacto"); 
+var editar_email           =  document.getElementById("emailMenuNuevoContacto"); 
+var editar_direccion       =  document.getElementById("direccionMenuNuevoContacto");
+var editar_interes         =  document.getElementById("rangeMenuNuevoContacto");
+var editar_valor           =  document.getElementById("valor");
+var editar_pais            =  document.getElementById("paisMenuNuevoContacto");
+var editar_provincia       =  document.getElementById("provinciaMenuNuevoContacto");
+var editar_ciudad          =  document.getElementById("ciudadMenuNuevoContacto");
+var editar_canal           =  document.getElementById("canalMenuNuevoContacto");
+var editar_canal2          =  document.getElementById("canalMenuNuevoContacto2");
+var editar_datosCanal01    =  document.getElementById("datosCanal01");
+var editar_datosCanal02    =  document.getElementById("datosCanal02");
+var editar_compania        =  document.getElementById("companiaNuevoContacto");
+var btnEditarContacto      =  document.getElementById("editarContacto");
+var nombreContactoBusqueda =  document.getElementById("nombreContactoBusqueda");
+//TODO: estoy trabajando para obtener los valores de la busqueda
 
+document.getElementById("botonDeBusqueda").addEventListener("click",()=>{
+    let cuerpoTablaContactoPantallaContactos = document.getElementById("cuerpoTablaContactoPantallaContactos");
+
+    cuerpoTablaContactoPantallaContactos.innerHTML ="";
+    setTimeout(() => {
+        console.log( nombreContactoBusqueda.value);
+        let busquedaPorNombre=nombreContactoBusqueda.value
+        fetchContactosBusqueda(nombreContactoBusqueda.value);
+        
+    }, 300);
+
+
+    
+})
 
 
 
@@ -101,6 +117,9 @@ var metodoPostborrarContacto    = async (data, token) => {
 
 
 }
+
+
+
 function actulizarTabla() {
     let cuerpoTablaContactoPantallaContactos = document.getElementById("cuerpoTablaContactoPantallaContactos");
     cuerpoTablaContactoPantallaContactos.innerHTML ="";
@@ -108,8 +127,9 @@ function actulizarTabla() {
     fetchContactosPantallaContacto();
         
     }, 300);
-    
 }
+
+
 var botonBorrarContacto=()=>{
 let  botonesBorrarContacto=  document.getElementsByClassName("btnBorrarContacto");
 for (let index = 0; index < botonesBorrarContacto.length; index++) {
@@ -479,6 +499,18 @@ document.getElementById("editarContacto").addEventListener("click",(e)=>{
    }, 2000);
 
 });
+
+//TODO: estoy haciendo la busqueda
+let fetchContactosBusqueda =  (nombreBusqueda) =>{
+    fetch(`http://localhost:3000/api/contactos/searchName?nombre=${nombreBusqueda}`)
+    .then(response => response.json())
+      .then((data) =>{
+        let muestra = contactoDatos(data);
+    console.log(data)
+      });
+}
+
+
 
 const actualizarTablaContactos = () => {
 
