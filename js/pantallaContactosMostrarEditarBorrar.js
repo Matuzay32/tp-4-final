@@ -91,18 +91,18 @@ document.getElementById("botonDeBusqueda").addEventListener("click",async (ev)=>
 
 
           return (
-					e.compania.compania ==busquedaGeneral.value||
-					e.interes == busquedaGeneral.value ||
-					e.ciudade.ciudad == busquedaGeneral.value ||
-					e.paise.pais == busquedaGeneral.value ||
-					e.cargo == busquedaGeneral.value ||
-					e.nombre == busquedaGeneral.value ||
+					e.compania.compania.toLowerCase() ==busquedaGeneral.value.toLowerCase()||
+					e.interes.toLowerCase() == busquedaGeneral.value.toLowerCase() ||
+					e.ciudade.ciudad.toLowerCase() == busquedaGeneral.value.toLowerCase() ||
+					e.paise.pais.toLowerCase() == busquedaGeneral.value.toLowerCase() ||
+					e.cargo.toLowerCase() == busquedaGeneral.value.toLowerCase() ||
+					e.nombre.toLowerCase() == busquedaGeneral.value.toLowerCase() ||
 					e.compania.id == companiaBusqueda.value ||
 					e.interes == interesBusqueda.value ||
 					e.ciudade.id == ciudadBusqueda.value ||
 					e.paise.id == paisBusqueda.value ||
-					e.cargo == cargoBusqueda.value ||
-					e.nombre == nombreContactoBusqueda.value
+					e.cargo == cargoBusqueda.value.toLowerCase() ||
+					e.nombre == nombreContactoBusqueda.value.toLowerCase()
 				); 
            
                //e.compania.compania ||  e.interes==busquedaGeneral.value|| e.ciudade.ciudad ==busquedaGeneral.value || e.paise.pais ==busquedaGeneral.value ||e.cargo ==busquedaGeneral.value || e.nombre ==busquedaGeneral.value 
