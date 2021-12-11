@@ -41,13 +41,23 @@ function valoresBusquedaA0(params) {
         interesBusqueda.value
     );
 }
+
+async function fetchAllGetAndReturnData() {
+const res =await fetch("http://localhost:3000/api/contactos");
+return await res.json();
+
+    
+}
+
+    
+
 valoresBusquedaA0();
 
-document.getElementById("botonDeBusqueda").addEventListener("click",(ev)=>{
+document.getElementById("botonDeBusqueda").addEventListener("click",async (ev)=>{
     ev.preventDefault();
     let cuerpoTablaContactoPantallaContactos = document.getElementById("cuerpoTablaContactoPantallaContactos");
     cuerpoTablaContactoPantallaContactos.innerHTML ="";
-    setTimeout(() => {
+    setTimeout(async () => {
                 
 
 
@@ -66,40 +76,22 @@ document.getElementById("botonDeBusqueda").addEventListener("click",(ev)=>{
 				companiaBusqueda.value,
 				interesBusqueda.value
 			);
+        // fetchContactosBusqueda(
+		// 		nombreB,
+		// 		cargoB,
+		// 		paisB,
+		// 		ciudadB,
+		// 		compaB,
+		// 		interesB
+		// 	);
+        const datos=await fetchAllGetAndReturnData();
+        console.log(datos,"estos son los datos")
+      const  datosFiltrados= datos.filter((e)=>{
 
-        // if (nombreContactoBusqueda.value != "undefined" || nombreContactoBusqueda.value != "") {
-        //     arrayBusqueda.push(nombreB)
-        //     console.log(arrayBusqueda);
-        // }
-        // if (cargoBusqueda.value != "undefined" || cargoBusqueda.value != "") {
-        //     arrayBusqueda.push(cargoB)
-        //     console.log(arrayBusqueda);
-        // }
-        // if (paisBusqueda.value != "undefined" || paisBusqueda.value != "") {
-        //     arrayBusqueda.push(paisB)
-        //     console.log(arrayBusqueda);
-        // }
-        // if (ciudadBusqueda.value != "undefined" || ciudadBusqueda.value != "") {
-        //     arrayBusqueda.push(ciudadB)
-        //     console.log(arrayBusqueda);
-        // }
-        // if (companiaBusqueda.value != "undefined" || companiaBusqueda.value != "") {
-        //     arrayBusqueda.push(compaB)
-        //     console.log(arrayBusqueda);
-        // }
-        // if (interesBusqueda.value != 0 || interesBusqueda > 0) {
-        //     arrayBusqueda.push(interesB)
-        //     console.log(arrayBusqueda);
-        // }
-        fetchContactosBusqueda(
-				nombreB,
-				cargoB,
-				paisB,
-				ciudadB,
-				compaB,
-				interesB
-			);
-        
+
+               return e.interes==interesBusqueda.value|| e.ciudade.id ==ciudadBusqueda.value || e.paise.id ==paisBusqueda.value ||e.cargo ==cargoBusqueda.value || e.nombre ==nombreContactoBusqueda.value 
+            })
+        contactoDatos(datosFiltrados);
     }, 300);
 
 
