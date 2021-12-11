@@ -21,13 +21,36 @@ var paisBusqueda           =  document.getElementById("paisBusqueda");
 var ciudadBusqueda         =  document.getElementById("ciudadBusqueda");
 var companiaBusqueda       =  document.getElementById("companiaBusqueda");
 var interesBusqueda        =  document.getElementById("rangeMenuBusqueda");
+var arrayBusqueda          =  [];
 //TODO: estoy trabajando para obtener los valores de la busqueda
 
-document.getElementById("botonDeBusqueda").addEventListener("click",()=>{
-    let cuerpoTablaContactoPantallaContactos = document.getElementById("cuerpoTablaContactoPantallaContactos");
 
+function valoresBusquedaA0(params) {
+    nombreContactoBusqueda.value = "";
+    cargoBusqueda.value          = "";
+    paisBusqueda.value           = "";
+    ciudadBusqueda.value         = "";
+    companiaBusqueda.value       = "";
+    interesBusqueda.value        = 0;
+    console.log(
+        nombreContactoBusqueda.value,
+        cargoBusqueda.value,
+        paisBusqueda.value,
+        ciudadBusqueda.value,
+        companiaBusqueda.value,
+        interesBusqueda.value
+    );
+}
+valoresBusquedaA0();
+
+document.getElementById("botonDeBusqueda").addEventListener("click",(ev)=>{
+    ev.preventDefault();
+    let cuerpoTablaContactoPantallaContactos = document.getElementById("cuerpoTablaContactoPantallaContactos");
     cuerpoTablaContactoPantallaContactos.innerHTML ="";
     setTimeout(() => {
+                
+
+
 
         let  nombreB  = `nombre=${nombreContactoBusqueda.value}`;
         let  cargoB   = `cargo=${cargoBusqueda.value}`;
@@ -44,7 +67,30 @@ document.getElementById("botonDeBusqueda").addEventListener("click",()=>{
 				interesBusqueda.value
 			);
 
-
+        // if (nombreContactoBusqueda.value != "undefined" || nombreContactoBusqueda.value != "") {
+        //     arrayBusqueda.push(nombreB)
+        //     console.log(arrayBusqueda);
+        // }
+        // if (cargoBusqueda.value != "undefined" || cargoBusqueda.value != "") {
+        //     arrayBusqueda.push(cargoB)
+        //     console.log(arrayBusqueda);
+        // }
+        // if (paisBusqueda.value != "undefined" || paisBusqueda.value != "") {
+        //     arrayBusqueda.push(paisB)
+        //     console.log(arrayBusqueda);
+        // }
+        // if (ciudadBusqueda.value != "undefined" || ciudadBusqueda.value != "") {
+        //     arrayBusqueda.push(ciudadB)
+        //     console.log(arrayBusqueda);
+        // }
+        // if (companiaBusqueda.value != "undefined" || companiaBusqueda.value != "") {
+        //     arrayBusqueda.push(compaB)
+        //     console.log(arrayBusqueda);
+        // }
+        // if (interesBusqueda.value != 0 || interesBusqueda > 0) {
+        //     arrayBusqueda.push(interesB)
+        //     console.log(arrayBusqueda);
+        // }
         fetchContactosBusqueda(
 				nombreB,
 				cargoB,
