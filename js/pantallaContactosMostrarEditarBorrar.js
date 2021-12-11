@@ -16,6 +16,7 @@ var editar_datosCanal02    =  document.getElementById("datosCanal02");
 var editar_compania        =  document.getElementById("companiaNuevoContacto");
 var btnEditarContacto      =  document.getElementById("editarContacto");
 var nombreContactoBusqueda =  document.getElementById("nombreContactoBusqueda");
+var cargoBusqueda          =  document.getElementById("cargoBusqueda");
 //TODO: estoy trabajando para obtener los valores de la busqueda
 
 document.getElementById("botonDeBusqueda").addEventListener("click",()=>{
@@ -23,9 +24,13 @@ document.getElementById("botonDeBusqueda").addEventListener("click",()=>{
 
     cuerpoTablaContactoPantallaContactos.innerHTML ="";
     setTimeout(() => {
-        console.log( nombreContactoBusqueda.value);
-        let busquedaPorNombre=nombreContactoBusqueda.value
-        fetchContactosBusqueda(nombreContactoBusqueda.value);
+
+        let  nombreB  = `nombre=${nombreContactoBusqueda.value}`;
+        let  cargoB  = `cargo=${cargoBusqueda.value}`;
+        console.log( nombreContactoBusqueda.value,cargoBusqueda.value);
+
+
+        fetchContactosBusqueda(nombreB,cargoB);
         
     }, 300);
 
@@ -501,11 +506,11 @@ document.getElementById("editarContacto").addEventListener("click",(e)=>{
 });
 
 //TODO: estoy haciendo la busqueda
-let fetchContactosBusqueda =  (nombreBusqueda) =>{
-    fetch(`http://localhost:3000/api/contactos/searchName?nombre=${nombreBusqueda}`)
+let fetchContactosBusqueda =  (nombreBusqueda,cargoBusqueda) =>{
+    fetch(`http://localhost:3000/api/contactos/searchName?${cargoBusqueda}`)
     .then(response => response.json())
       .then((data) =>{
-        let muestra = contactoDatos(data);
+        //let muestra = contactoDatos(data);
     console.log(data)
       });
 }
