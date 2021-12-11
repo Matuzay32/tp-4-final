@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/estilo.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark">
+    <!-- nav bar con buscador  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark  border border-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img class="w-50" src="assets/logo.png" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a id="contactosLink" class="nav-link active text-light" aria-current="page"
+                            href="#">Contactos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="usuariosLink" class="nav-link text-light" href="#">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="paisesCiudadesLink" class="nav-link text-light" href="#">Paises/Provincias/Ciudades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="loginLink" class="nav-link text-light" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="registrarseLink" class="nav-link text-light" href="#">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="companiasLink" class="nav-link text-light" href="#">Compañias </a>
+                    </li>
+
+
+
+
+                </ul>
+                <form class="d-flex">
+                    <form class="d-flex">
+
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+
+                            </a>
+                            <ul class="dropdown-menu largo-menu-buscador bg-dark"
+                                aria-labelledby="navbarScrollingDropdown">
+
+                                <!--  //Menu desplegable -->
+
+
+                                <div class="input-group input-group-sm mt-3 bg-dark">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Nombre del
+                                            contacto</span>
+                                    </div>
+                                    <input type="text" id="nombreContactoBusqueda" class="form-control"
+                                        aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                                </div>
+
+
+
+                                <div class="input-group input-group-sm mt-3 bg-dark">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Cargo</span>
+                                    </div>
+                                    <input type="text" id="cargoBusqueda" class="form-control" aria-label="Small"
+                                        aria-describedby="inputGroup-sizing-sm">
+                                </div>
+
+
+
+
+
+                                <div class="input-group mt-3 mb-3 bg-dark">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="paisBusqueda">Pais</label>
+                                    </div>
+                                    <select class="custom-select" id="paisBusqueda">
+                                        <option selected="">Paises</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-group mt-3 mb-3 bg-dark">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="ciudadBusqueda">Ciudad</label>
+                                    </div>
+                                    <select class="custom-select" id="ciudadBusqueda">
+                                        <option selected="">Ciudades</option>
+                                    </select>
+                                </div>
+
+
+
+
+                                <div class="input-group mt-3 mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Compañia</label>
+                                    </div>
+                                    <select class="custom-select" id="companiaBusqueda">
+                                        <option selected="">Compañias</option>
+
+                                    </select>
+                                </div>
+
+
+
+                                <div class="input-group mt-3 mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Canal favorito</label>
+                                    </div>
+                                    <select class="custom-select" id="canalBusqueda">
+                                        <option selected="">Canales</option>
+                                    </select>
+                                </div>
+                                <!-- TODO: linea en la que estoy trabajando -->
+                                <div class="input-group mt-3 mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="inputGroupSelect01">Intereses</label>
+                                    </div>
+                                    <div class="col"><input type="range" class="form-range ms-2  "
+                                            id="rangeMenuBusqueda"></div>
+
+                                    <div style="display: block; height: 40px ;" id="valorBusqueda"
+                                        class="    text-white  "></div>
+                                </div>
+
+
+
+                            </ul>
+                        </div>
+
+                        <input class="form-control me-2" type="search" placeholder="Busqueda" aria-label="Search">
+                        <button class="btn btn-outline-warning" type="submit">Busqueda</button>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- agregar contactos  -->
+    <section class="d-none" id="ContactosSection">
+
+        <div class="container-fluid  bg-dark ">
+            <div class=" row justify-content-center ">
+
+
+                <!-- <div class="col-3"> -->
+
+                <!-- <button id="exportarContactoBtn"type="button" class="btn btn-dark btn btn-outline-warning mt-4 mb-4">Exportar contactos -->
+                <!-- </button> -->
+
+                <!-- </div> -->
+                <div class="col-2">
+                    <div class="form-group">
+                        <input type="file" id="exampleInputFile" class="file-input  ">
+                        <label for="exampleInputFile" class="btn btn-dark btn btn-outline-warning mt-4">Importar
+                            contacto</label>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button id="agregarContacto" type="button" class="btn btn-dark btn btn-outline-warning mt-4 ">+
+                        Agregar
+                        contacto</button>
+                </div>
+
+            </div>
+
+            <form id="formularioCrearContacto" action="">
+                <div class="container sombraMenu d-none" id="sombraMenu">
+
+                    <div id="menu-agregar" class="menu-agregar">
+                        <div class="container-fluid bg-dark border border-warning mt-5 ">
+                            <div class="d-flex justify-content-end ">
+                                <button type="button" class="close bg-dark text-white" id="cruz-menu-agregar"
+                                    aria-label="Close">
+                                    <span class="text-warning" aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <div
+                                    class="container bg-danger w-50 d-flex justify-content-center mt-4 mb-4 container-titulo">
+                                    <h1 class="text-white nuevo-contacto-titulo"> Nuevo contacto</h1>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+
+                                <div class="col">
+                                    <div class="container d-flex justify-content-end  mt-2 mb-2 ">
+                                        <img class="w-50 border border-warning rounded-circle"
+                                            src="assets/imagen contacto.jpg" alt="contacto-img">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="nombreMenuNuevoContacto" class="estilo-label">Nombre*</label>
+                                        <input type="text" class="form-control" id="nombreMenuNuevoContacto"
+                                            placeholder="Nombre" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="apellidoMenuNuevoContacto" class="estilo-label">Apellido*</label>
+                                        <input type="text" class="form-control" id="apellidoMenuNuevoContacto"
+                                            placeholder="Apellido" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="cargoMenuNuevoContacto" class="estilo-label">Cargo*</label>
+                                        <input type="Cargo" class="form-control" id="cargoMenuNuevoContacto"
+                                            placeholder="Cargo " required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="emailMenuNuevoContacto" class="estilo-label">Email*</label>
+                                        <input type="email" class="form-control" id="emailMenuNuevoContacto"
+                                            aria-describedby="emailHelp" placeholder=" email" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group col">
+                                        <label class="estilo-label" for="companiaNuevoContacto">Compañia*</label>
+                                        <select id="companiaNuevoContacto" class="form-control" required>
+                                            <option value="" selected="">Seleccione su compañia</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row bg-dark">
+
+
+                            <div class="form-group col">
+                                <label class="estilo-label" for="paisMenuNuevoContacto">Pais*</label>
+                                <select id="paisMenuNuevoContacto" class="form-control" required>
+                                    <option value="" selected="">Seleccione su pais</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col">
+                                <label class="estilo-label" for="provinciaMenuNuevoContacto">Provincia*</label>
+                                <select id="provinciaMenuNuevoContacto" class="form-control" required>
+                                    <option value="" selected="">Seleccione su provincia</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col">
+                                <label class="estilo-label" for="ciudadMenuNuevoContacto">Ciudad*</label>
+                                <select id="ciudadMenuNuevoContacto" class="form-control" required>
+                                    <option value="" selected="">Seleccione su ciudad</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="direccionMenuNuevoContacto" class="estilo-label">Direccion*</label>
+                                    <input type="text" class="form-control" id="direccionMenuNuevoContacto"
+                                        placeholder="Direccion" required>
+                                </div>
+                            </div>
+                            <div class="col"></div>
+                        </div>
+
+
+                        <div class="row bg-dark mb-5 mt-3">
+                            <div class="col">
+                                <label class="estilo-label" for="canalMenuNuevoContacto">Canal de contacto*</label>
+                                <select id="canalMenuNuevoContacto" class="form-control" required>
+                                    <option value="" selected="">Seleccione un canal de contacto</option>
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <label class="estilo-label" for="datosCanal02">Datos del canal
+                                    *</label>
+                                <input required type="text" id="datosCanal02" class="form-control">
+
+                            </div>
+
+
+                            <div class="col"></div>
+                            <div class="col">
+                                <label for="rangeMenuNuevoContacto" class="estilo-label">Interes</label>
+                                <input type="range" class="form-range " id="rangeMenuNuevoContacto">
+
+                                <div class="row bg-dark d-flex justify-content-center">
+                                    <div style="display: none;" id="valor" class="  text-white  mr-2 "></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="rowAgregarMas" class="row bg-dark mb-4 ">
+
+                            <div class="col">
+                                <label class="estilo-label" for="canalMenuNuevoContacto">Canal de contacto*</label>
+
+                                <select id="canalMenuNuevoContacto2" class="form-control" required>
+                                    <option value="" selected="">Seleccione un segundo canal de contacto</option>
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                <label class="estilo-label" for="datosCanal01">Datos del canal
+                                    *</label>
+                                <input type="text" id="datosCanal01" class="form-control">
+
+                            </div>
+                            <div class="col"></div>
+
+                            <div class="col">
+                            </div>
+
+
+                        </div>
+
+                        <div class="row bg-dark mb-4 ">
+
+                            <div class="col "></div>
+
+                            <!--   <div class="col-2  d-flex justify-content-center">
+                                <button type="button" id="EliminarContacto"
+                                    class="btn btn-danger text-light btn-outline-danger mt-2"> Eliminar canal</button>
+                            </div -->>
+
+                            <div class="col-2  d-flex justify-content-center">
+                                <button type="submit" id="guardarContacto"
+                                    class="btn btn-success text-light btn btn-outline-success mt-2  "> Guardar
+                                    contacto</button>
+
+                            </div>
+                            <div class="col-2  d-flex justify-content-center ">
+                                <button type="submit" id="editarContacto"
+                                    class="btn btn-warning text-light btn btn-outline-warning mt-2 "> Editar
+                                    contacto</button>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <div class="container border border-warning  bg-dark mt-3">
+            <div class="row bg-dark">
+                <div class=" container bg-danger w-50 d-flex justify-content-center mt-4 mb-4 container-titulo">
+                    <h1 class="text-white nuevo-contacto-titulo"> Contactos</h1>
+                </div>
+            </div>
+
+
+            <div class="container-fluid">
+                <div class="col table-responsive">
+                    <table class="table table-striped table-bordered table-hover table-dark table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Contacto</th>
+                                <th>Pais/Ciudad</th>
+                                <th>Compañia</th>
+                                <th>Cargo</th>
+                                <th>Canal</th>
+                                <th>Interes</th>
+                                <th>Borra Contacto</th>
+                                <th>Editar</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="table-responsive-lg" id="cuerpoTablaContactoPantallaContactos">
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+    </section>
+
+
+
+    <section id="loginSection" class="d-none">
+        <div class="container-fluid bg-dark  p-3 containerLogin">
+            <div class="container-fluid bg-dark sombraMenu">
+                <div class="container bg-dark border border-warning  mt-5 mb-5 ">
+
+                    <div class="row">
+                        <div class="container bg-danger w-50 d-flex justify-content-center mt-4 mb-4 container-titulo">
+                            <h1 class="text-white nuevo-contacto-titulo"> Login</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+
+                    </div>
+
+                    <div class="row row d-flex justify-content-center mb-3">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="userLogin" class="estilo-label">Usuario*</label>
+                                <input id="userLogin" type="text" class="form-control" placeholder="Usuario"
+                                    required="">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row d-flex justify-content-center mb-3">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="passwordLogin" class="estilo-label">Contraseña*</label>
+                                <input id="passwordLogin" type="text" class="form-control" placeholder="Contraseña"
+                                    required="">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row d-flex justify-content-center mb-3 ">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="emailLogin" class="estilo-label">Email*</label>
+                                <input id="emailLogin" type="email" class="form-control" placeholder="Email"
+                                    required="">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row d-flex justify-content-center mb-3 ">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="rolLogin" class="estilo-label">Area*</label>
+                                <select id="rolLogin" class="form-control" required="">
+                                    <option value="" selected="">Seleccione su area</option>
+                                </select>
+                            </div>
+
+                            <div class="row d-flex justify-content-center mb-5">
+                                <div class="col-4">
+                                    <div id="btnLogin" class="row mt-3"><button class="btn btn-lg btn-outline-warning"
+                                            type="submit">Acceder</button>
+
+                                    </div>
+                                    <div class="col-8"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+    </section>
+
+
+
+    <section id="registerSection" class="d-none">
+        <form id="formRegister" action="">
+
+            <div class="container-fluid bg-dark  p-3 containerLogin">
+                <div class="container-fluid bg-dark sombraMenu">
+                    <div class="container bg-dark border border-warning  mt-5 mb-5 ">
+
+                        <div class="row">
+                            <div
+                                class="container bg-danger w-50 d-flex justify-content-center mt-4 mb-4 container-titulo">
+                                <h1 class="text-white nuevo-contacto-titulo"> Register</h1>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+
+                        </div>
+
+                        <div class="row row d-flex justify-content-center mb-3">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="registerUser" class="estilo-label">Usuario*</label>
+                                    <input id="registerUser" type="text" class="form-control" placeholder="Usuario"
+                                        required="">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row d-flex justify-content-center mb-3">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="registerPassWord" class="estilo-label">Contraseña*</label>
+                                    <input id="registerPassWord" type="text" class="form-control"
+                                        placeholder="Contraseña" required="">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row d-flex justify-content-center mb-3 ">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="registerEmail" class="estilo-label">Email*</label>
+                                    <input id="registerEmail" type="email" class="form-control" placeholder="Email"
+                                        required="">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row d-flex justify-content-center mb-3 ">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="registerRol" class="estilo-label">Area*</label>
+                                    <select id="registerRol" class="form-control" required="">
+                                        <option value="" selected="">Seleccione su area</option>
+                                    </select>
+                                </div>
+
+                                <!--  <div class="form-group col">
+                                    <label class="estilo-label" for="registerRol">Rol*</label>
+                                    <select id="registerRol" class="form-control" required="">
+                                        <option value="" selected="">Seleccione su rol</option>
+                                    </select>
+                                </div> -->
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="row d-flex justify-content-center mb-5">
+                            <div class="col-4">
+                                <div class="row"><button class="btn btn-lg btn-outline-warning" id="registerRegistrar"
+                                        type="submit">Registrar</button>
+
+                                </div>
+                                <div class="col-8"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </section>
+
+
+
+    <section id="companiasSection" class="d-none">
+        <div class="container-fluid">
+
+            <div class="row bg-dark">
+                <div class=" container bg-danger w-50 d-flex justify-content-center mt-4 mb-4 container-titulo">
+                    <h1 class="text-white nuevo-contacto-titulo"> Compañias</h1>
+                </div>
+            </div>
+
+            <div class=" row justify-content-center ">
+
+
+
+
+                <div class="row row d-flex justify-content-center mb-3">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="agregarCompaniaInput" class="estilo-label">Agregar compañias</label>
+                            <input id="agregarCompaniaInput" type="text" class="form-control" placeholder="Compañia"
+                                required="">
+
+                        </div>
+
+                    </div>
+                    <div class="col mt-3">
+                        <button class="btn btn-outline-warning mt-2 " id="btnAgregarCompania">+Agregar</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="container-fluid" id="containerListaCompanias">
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <section id="PaisCiudadSection" class="d-none">
+        <div class="container-fluid">
+
+            <div class="row bg-dark">
+                <div class=" container bg-danger w-50 d-flex justify-content-center mt-4 mb-4 container-titulo">
+                    <h1 class="text-white nuevo-contacto-titulo"> Paises/Provincias/Ciudades</h1>
+                </div>
+            </div>
+
+            <!-- Seccion Paises-->
+            <div class="row row d-flex justify-content-center mb-3">
+
+                <div class="col"></div>
+
+
+                <div class="col">
+                    <div class="form-group">
+                        <label for="agregarPaisInput" class="estilo-label">Agregar paises</label>
+                        <input id="agregarPaisInput" type="text" class="form-control" placeholder="Pais" required="">
+
+                    </div>
+
+                </div>
+                <div class="col mt-3">
+                    <button class="btn btn-outline-warning mt-2 " id="btnAgregarPais">+Agregar</button>
+                </div>
+
+                <div class="row d-flex justify-content-center mt-3 bg-dark">
+                    <div class="col">
+                        <div class="container-fluid" id="containerListaPaises"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Seccion Provincias-->
+            <div class="row row d-flex justify-content-center mb-3">
+
+                <div class="col"></div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="agregarProvinciaInput" class="estilo-label">Agregar provincias</label>
+                        <input id="agregarProvinciaInput" type="text" class="form-control" placeholder="Provincia"
+                            required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="agregarPaisProvincia" class="estilo-label">Elegir Pais</label>
+                        <select id="agregarPaisProvincia" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="col mt-3">
+                    <button class="btn btn-outline-warning mt-2 " id="btnAgregarProvincia" disabled="true">+Agregar</button>
+                </div>
+
+                <div class="row d-flex justify-content-center mt-3 bg-dark">
+                    <div class="col">
+                        <div class="container-fluid" id="containerListaProvincias"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seccion Ciudades-->
+            <div class="row row d-flex justify-content-center mb-3">
+
+                <div class="col"></div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="agregarCiudadInput" class="estilo-label">Agregar ciudades</label>
+                        <input id="agregarCiudadInput" type="text" class="form-control" placeholder="Ciudad"
+                            required="">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="agregarProvinciaCiudad" class="estilo-label">Elegir Provincia</label>
+                        <select id="agregarProvinciaCiudad" class="form-control"></select>
+                    </div>
+
+                </div>
+                <div class="col mt-3">
+                    <button class="btn btn-outline-warning mt-2 " id="btnAgregarCiudad" disabled="true">+Agregar</button>
+                </div>
+
+                <div class="row d-flex justify-content-center mt-3 bg-dark">
+                    <div class="col">
+                        <div class="container-fluid" id="containerListaCiudades"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
+    Launch demo modal
+  </button> -->
+
+    <!-- MI MODAL O MENSAJE DE ERROR O EXITO-->
+    <div class="modal fade " id="miModal" tabindex="-1" aria-labelledby="tituloModal" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header  alert-success" id="modalHeader">
+                    <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+                <div class="modal-body  alert-success" id="modalBody">
+                    <div id="contenedorH5Modal" class=" alert-success">
+                        <h5 id="h5Modal">Ingresado Los datos correctamente</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6322690388.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/read-excel-file@5.x/bundle/read-excel-file.min.js"></script>
+    <script src="js/importarContacto.js"></script>
+
+    <script src="js/inputRange.js"></script>
+    <script src="js/agregarContactoMenu.js"></script>
+    <script src="js/linksSecciones.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/companias.js"></script>
+    <script src="js/ciudades.js"></script>
+    <script src="js/paises.js"></script>
+    <script src="js/provincias.js"></script>
+    <script src="js/busquedas.js"></script>
+    <script src="js/pantallaContactosMostrarEditarBorrar.js"></script>
+    <script src="js/tableToExcel.js"></script>
+
+
+</body>
+
+</html>

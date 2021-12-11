@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: circle;
+}
+
+.carrusel {
+  height: 350px !important;
+}
+
+.largo-menu-buscador {
+  width: 300px;
+}
+
+.form-control {
+  color: orange !important;
+  background-color: #212529 !important;
+}
+
+.input-group-text {
+  border: none !important;
+  font-weight: 600 !important;
+  background-color: #212529 !important;
+  color: white !important;
+  box-shadow: 1px 0px  1px orange !important;
+}
+
+.custom-select {
+  color: orange;
+  background-color: #212529;
+}
+
+.form-control {
+  font-weight: 500 !important;
+}
+
+.d-flex .dropdown .nav-link {
+  color: white !important;
+}
+
+.file-input {
+  display: none;
+}
+
+.nav-item .nav-link:hover {
+  color: orange !important;
+  font-weight: 600;
+}
+
+.estilo-label {
+  color: white;
+  font-weight: 700;
+}
+
+.container-fluid .row .col .container .border {
+  border: 2px solid #dee2e6 !important;
+}
+
+.sombraMenu {
+  border-radius: 30px;
+  border: white solid 2px;
+}
+
+.sombraMenu .menu-agregar {
+  z-index: 1000;
+}
+
+#valor {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+#valorBusqueda {
+  padding-left: 30px !important;
+  width: 100px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+.container-titulo {
+  background: #FFF;
+  margin: 50px;
+  background: linear-gradient(45deg, #ffc107 25%, #212529 0, #212529 50%, #ffc107 0%, #ffc107 75%, #212529 0);
+  background-size: 30px 30px;
+}
+
+.container-titulo .nuevo-contacto-titulo {
+  text-shadow: 1px 2px 20px #000, -4px -5px 18px #000, 2px 12px 20px #000, -6px -20px 20px #000;
+}
+
+.close {
+  border: none !important;
+}
+
+.close span {
+  font-size: 30px;
+}
+
+.close span:hover {
+  text-shadow: 1px -1px 8px white;
+}
+
+.bordeFila {
+  border: solid 2px #ffc107;
+}
+
+.sombra {
+  box-shadow: 5px 5px 0px 0px #ffe13a, 10px 10px 0px 0px #ff3407, 15px 15px 0px 0px #ff7207, 20px 20px 0px 0px #ffbf00, 25px 25px 0px 0px #fafafa, 5px 5px 15px 5px;
+}
+
+.ciudades {
+  width: 500px;
+}
+/*# sourceMappingURL=estilo.css.map */
