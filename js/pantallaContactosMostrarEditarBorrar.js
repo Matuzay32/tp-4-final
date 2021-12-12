@@ -422,7 +422,8 @@ document.getElementById("contactosLink").addEventListener("click",async function
   
 })
 let crearContactosPantallaContactos = (obj)=>{
-    cuerpoTablaContactoPantallaContactos.innerHTML += `             <tr id=table${obj.id}>
+    cuerpoTablaContactoPantallaContactos.innerHTML += `             
+    <tr id=table${obj.id}>
     <td>
         <ul>
             <li ${obj.nombre} class="mb-5">${obj.nombre} ${obj.apellido}  </li>
