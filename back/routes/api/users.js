@@ -6,7 +6,15 @@ const moment                    = require("moment");
 const jwt                       = require("jwt-simple");
 const { rol }                   = require("../middlewares");
 
+router.get("/", async(req,res)=>{
 
+    const users =  await User.findAll();
+    
+   res.json(users); 
+ 
+
+   
+});
 
 router.post("/registrer",async (req,res)=>{
 

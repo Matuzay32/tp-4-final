@@ -11,29 +11,44 @@ let botonDeBusqueda     = document.getElementById("botonDeBusqueda");
 
 //secciones 
 var contactosSection    = document.getElementById("ContactosSection");
+var usersSection        = document.getElementById("usuariosSection");
 var loginSection        = document.getElementById("loginSection");
 var registerSection     = document.getElementById("registerSection");
 var companiasSection    = document.getElementById("companiasSection");
 var PaisCiudadSection   = document.getElementById("PaisCiudadSection");
+var usuariosSection   = document.getElementById("usuariosSection");
+
 
 
 //Funcion Imporntante obtiene como parametro todas cosas que se quieren ocultar como secciones o elementos de las mismas
 var TodasLasSecciones   = (seccion1, seccion2, secion3, seccion4, seccion5,seccion6,seccion7) => {
     let arraySecciones = [];
-    arraySecciones.push(seccion1, seccion2,secion3,seccion4,seccion5,seccion6);
+    arraySecciones.push(seccion1, seccion2,secion3,seccion4,seccion5,seccion6,seccion7);
 
     return arraySecciones;
 
 }
 
 // Aca hay que pasar lo que se quiere ocultar una ves se pasa de seccion como parametro
-var arrSections         = TodasLasSecciones(contactosSection, loginSection,sombraMenu,registerSection,companiasSection,PaisCiudadSection);
+var arrSections = TodasLasSecciones(
+	contactosSection,
+	loginSection,
+	sombraMenu,
+	registerSection,
+	companiasSection,
+	PaisCiudadSection,
+    usuariosSection
+
+);
 
 
 
 
 
 //event Listeners de los links
+usuariosLink.addEventListener("click",()=>{
+    menuUsuarios(arrSections);
+})
 botonDeBusqueda.addEventListener  ("click", () => {
     menuContactos(arrSections);
 
@@ -118,6 +133,14 @@ var menuCompanias       = (arraySecciones) => {
         arraySecciones[index].classList.add("d-none");
     }
     companiasSection.classList.remove("d-none");
+
+
+}
+var menuUsuarios       = (arraySecciones) => {
+    for (let index = 0; index < arraySecciones.length; index++) {
+        arraySecciones[index].classList.add("d-none");
+    }
+    usuariosSection.classList.remove("d-none");
 
 
 }

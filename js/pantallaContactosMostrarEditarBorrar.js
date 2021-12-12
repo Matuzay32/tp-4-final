@@ -22,7 +22,7 @@ var ciudadBusqueda         =  document.getElementById("ciudadBusqueda");
 var companiaBusqueda       =  document.getElementById("companiaBusqueda");
 var interesBusqueda        =  document.getElementById("rangeMenuBusqueda");
 var busquedaGeneral        =  document.getElementById("busquedaGeneral");
-var opcionesExtraBusqueda  =  document.getElementById("opcionesExtraBusqueda");
+var opcionesExtraBusqueda  =  document.getElementById("opcionesExtraBusquedañ");
 var arrayBusqueda          =  [];
 //TODO: estoy trabajando para obtener los valores de la busqueda
 
@@ -43,9 +43,9 @@ function valoresBusquedaA0(params) {
         interesBusqueda.value
     );
 }
-opcionesExtraBusqueda.addEventListener("click",()=>{
-    valoresBusquedaA0();
-})
+// opcionesExtraBusqueda.addEventListener("click",()=>{
+//     valoresBusquedaA0();
+// })
 async function fetchAllGetAndReturnData() {
 const res =await fetch("http://localhost:3000/api/contactos");
 return await res.json();
