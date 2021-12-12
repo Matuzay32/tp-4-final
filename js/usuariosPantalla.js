@@ -16,13 +16,12 @@ var botonBorrarUsuario = async () => {
                 id: btnBorrarUsuario[index].value
                 
             }
-            setTimeout(() => {
             metodoPostborrarUser(datoABorrar);
-                
-            }, 200);
-            var allUsers = await traerAllUsers();
+            const allUsers = await traerAllUsers();
             console.log("todos usuarios traidos", allUsers);
             actulizarTablaUsers(allUsers);
+            
+         
         })
      
 
@@ -51,7 +50,7 @@ var metodoPostborrarUser   = async (data, token) => {
 }
 
 usuariosLink.addEventListener("click", async () => {
-	var allUsers = await traerAllUsers();
+	const allUsers = await traerAllUsers();
 	console.log("todos usuarios traidos", allUsers);
     actulizarTablaUsers(allUsers);
 	
