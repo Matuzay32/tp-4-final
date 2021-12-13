@@ -61,6 +61,20 @@ let crearContactosPantallaUsuarios = (obj) => {
     <tr id=table${obj.id}>
     <td>
         <ul>
+            <li ${obj.nombre} class="mb-5">${obj.nombre}  </li>
+            
+        </ul>
+ 
+    </td>
+    <td>
+        <ul>
+            <li ${obj.apellido} class="mb-5">${obj.apellido}  </li>
+            
+        </ul>
+ 
+    </td>
+    <td>
+        <ul>
             <li ${obj.username} class="mb-5">${obj.username}  </li>
             
         </ul>

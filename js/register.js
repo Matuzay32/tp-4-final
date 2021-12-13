@@ -6,6 +6,9 @@ const  registerPassWord       = document.getElementById("registerPassWord");
 const  registerEmail          = document.getElementById("registerEmail");
 const  registerRol            = document.getElementById("registerRol");
 const  registerBtn            = document.getElementById("registerRegistrar");
+const  registerApellido       = document.getElementById("registerApellido");
+const  registerNombre         = document.getElementById("registerNombre");
+
 
 
 registerBtn.addEventListener("click",async(ev)=>{
@@ -38,6 +41,8 @@ var registerContacto = () => {
         username: `${registerUser.value}`,
         password: `${registerPassWord.value}`,
         email:    `${registerEmail.value}`,
+        nombre: `${registerNombre.value}`,
+        apellido: `${registerApellido.value}`,
         roleId:   `${registerRol.value}`,
 
 
