@@ -1,4 +1,3 @@
-
 const jwt      = require("jwt-simple");
 const moment   = require("moment");
 // Esta funcion checkea el token
