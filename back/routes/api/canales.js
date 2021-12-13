@@ -2,8 +2,6 @@ const router      = require("express").Router();
 const middlewares = require("../middlewares");
 const jwt         = require("jwt-simple");
 const ROL_ADMIN   = 1;
-
-
 const {Canales} = require("../../db")
 
 
@@ -13,7 +11,7 @@ router.get("/", async(req,res)=>{
 
 });
 
-router.post("/",middlewares.rol,async (req,res)=>{
+router.post("/",async (req,res)=>{
 
     var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -29,7 +27,7 @@ router.post("/",middlewares.rol,async (req,res)=>{
 
 });
 
-router.put("/:canalesId",middlewares.rol,async (req,res)=>{
+router.put("/:canalesId",async (req,res)=>{
 
     var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -49,7 +47,7 @@ router.put("/:canalesId",middlewares.rol,async (req,res)=>{
 });
 
 
-router.delete("/:canalesId",middlewares.rol,async (req,res)=>{
+router.delete("/:canalesId",async (req,res)=>{
 
 
     var cabecera = req.headers["user-token"];

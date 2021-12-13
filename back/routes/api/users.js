@@ -81,7 +81,7 @@ router.post("/registrer",async (req,res)=>{
 const createToken = (user,rol) =>{
     const playLoad ={
         usuarioId:user.id,
-        rolUsuario:user.rol,
+        rolUsuario:user.roleId,
         createAt:moment().unix(),
         expiredAt:moment().add(60,"minutes").unix()
     }
@@ -92,14 +92,7 @@ const createToken = (user,rol) =>{
 router.delete("/",middlewares.rol,async (req,res)=>{
 
 
-    /* var cabecera = req.headers["user-token"];
-    var usuario =  jwt.decode(cabecera,"frase secreta"); */
 
-    /* if(!esUsuarioValidoParaGestionarProducto(usuario)) {
-
-        res.status(400).send(`Usuario invalido para eliminar un pais.`);
-        return false;
-    } */
     const borrarDato = req.body.id;
     await User.destroy({ where:{id:borrarDato }});
     res.json({succcess: "Contacto Borrado con exito"});

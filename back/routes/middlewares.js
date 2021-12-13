@@ -40,14 +40,12 @@ req.usuarioId =playLoad.UsuarioId;
 const rol = (req,res ,next) =>{
 
     var cabecera = req.headers["user-token"];
-    var usuario=  jwt.decode(cabecera,"frase secreta");
-    console.log("esta es mi cabecera",usuario.rolUsuario);
+    var usuario =  jwt.decode(cabecera,"frase secreta"); 
 
-   /*  if(usuario.rolUsuario !=1){
-        return res.json({error:"necesitas ser administrador"})
-    } */
-
-    
+        if(usuario.rolUsuario !=1){
+        res.status(400).send(`Debe ser administador para borrar un usuario`);
+        return false;
+    } 
    
 
     next();
