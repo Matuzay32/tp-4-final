@@ -43,6 +43,7 @@ router.post("/registrer",async (req,res)=>{
  router.post("/login",async (req,res)=>{
 
      const user =  await User.findOne({where:{ email:req.body.email,roleId:req.body.roleId }});
+     const elRol = await User.findOne({where:{roleId:req.body.roleId}})
      
      const password =  await User.findOne({where:{password:req.body.password}});
      const username =  await User.findOne({where:{username:req.body.username}});
@@ -63,6 +64,7 @@ router.post("/registrer",async (req,res)=>{
     if (password) {
          res.json(
              {
+                rol:elRol,
                 Token:createToken(user),
                 Usuario:"ha ingresado el Usuario Correctamente",
                 

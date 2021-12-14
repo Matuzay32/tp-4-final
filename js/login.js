@@ -4,12 +4,22 @@ var emailLogin       =document.getElementById("emailLogin");
 var rolLogin         =document.getElementById("rolLogin");
 var btnLogin         =document.getElementById("btnLogin");
 
+
+
+function vaciarInputLogin() {
+ userLogin.value ="" 
+passwordLogin.value =""
+emailLogin.value =""   
+rolLogin.value =0     
+    
+}
+
 //esta funcion es asyncrona para espera la respuesta del token
 btnLogin.addEventListener("click",async (ev)  =>{
 //La respuesta del token 
 var respuesta= await  loginPostContacto(loginContacto());
 //Luego paso como parametro la funcion para enviarla al SecionStorage
-guardarTokenLocalStorage(respuesta.Token);
+guardarTokenLocalStorage(respuesta.Token,respuesta.rol);
 ev.preventDefault();
 
 
@@ -51,10 +61,27 @@ var loginPostContacto = async (data) => {
 
 
 //guarda el token en secionStorage
-var guardarTokenLocalStorage=(Token)=>{
+var guardarTokenLocalStorage=(Token,rol)=>{
+
+    if(rol.roleId ===1){
+        setTimeout(async() => {
+        document.getElementById("usuariosLink").classList.remove("d-none");
+        modalSucces("Ha ingresado como administrador  ✔️",30000000);
+        const allUsers = await traerAllUsers();
+        actulizarTablaUsers(allUsers);
+        menuUsuarios(arrSections);
+        vaciarInputLogin();
+            
+        }, 1000);
+    }else{
+        document.getElementById("usuariosLink").classList.add("d-none");
+        modalSucces("Ha ingresado los datos correctamente  ✔️");
+
+
+    }
+        console.log("este es mi rol:", rol.roleId);
     if(Token){
     sessionStorage.setItem('TOKEN', Token);
-    modalSucces("Ha ingresado los datos correctamente  ✔️");
     
     }else{
     sessionStorage.removeItem("TOKEN");

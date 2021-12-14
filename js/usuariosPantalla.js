@@ -16,7 +16,6 @@ var botonBorrarUsuario = async () => {
                 id: btnBorrarUsuario[index].value
                 
             }
-           console.log( "esto es lo que devulve el metodo de borrado",await metodoPostborrarUser(datoABorrar));
            metodoPostborrarUser(datoABorrar);
             const allUsers = await traerAllUsers();
             actulizarTablaUsers(allUsers);

@@ -42,6 +42,7 @@ var registerContacto = () => {
         password: `${registerPassWord.value}`,
         email:    `${registerEmail.value}`,
         nombre: `${registerNombre.value}`,
+
         apellido: `${registerApellido.value}`,
         roleId:   `${registerRol.value}`,
 
