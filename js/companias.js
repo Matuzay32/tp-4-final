@@ -5,6 +5,36 @@ let agregarCompaniaNumero   = document.getElementById("agregarCompaniaNumero");
 //varible global en la que voy a guardar el obj de companias
 var arrayDeObjetos          = [];
 
+
+var fetchCompaniaPaises              = ()=>{
+    fetch('http://localhost:3000/api/paises')
+    .then(response => response.json())
+     .then((data) => {
+        trayendoPaisesCompania(data);
+  
+     });
+     
+    
+  }
+
+  var trayendoPaisesCompania   = (data)=>{
+    for (let index = 0; index < data.length; index++) {
+  
+      let  paisMenu=  document.getElementById("paisCompania");
+      
+  
+      let optionElement =document.createElement("option");
+      paisMenu.appendChild(optionElement);
+      optionElement.text =data[index].pais;
+      optionElement.value = data[index].id
+  
+        
+    }
+  
+  }
+
+  fetchCompaniaPaises();
+
 //esta funcion crea los divs con los contenidos del metodo get
 var creaCompania            = (comp, idComp, containerListaCompanias,numero) => {
     containerListaCompanias.innerHTML += `<div class="row bg-dark mb-5 d-flex flex-row m-3  sombra bordeFila">
