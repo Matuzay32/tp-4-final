@@ -6,6 +6,9 @@ module.exports =(sequelize,type) =>{
             autoIncrement:true
         },
         compania: type.STRING,
+        numero: type.INTEGER,
+
+
         
        
 
