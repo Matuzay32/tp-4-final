@@ -13,7 +13,7 @@ router.get("/", async(req,res)=>{
 
 });
 
-router.post("/",middlewares.rol,async (req,res)=>{
+router.post("/"/* ,middlewares.rol */,async (req,res)=>{
 
     /*  var cabecera = req.headers["user-token"];
      var usuario =  jwt.decode(cabecera,"frase secreta"); */
@@ -24,6 +24,7 @@ router.post("/",middlewares.rol,async (req,res)=>{
         arrCompanias.forEach(async(element) => {
             let obj ={
                 compania:element.compania,
+                numero: element.numero
                 
             }
             var tablaCompanias =  await Companias.create(obj); 
@@ -44,7 +45,7 @@ router.post("/",middlewares.rol,async (req,res)=>{
 
 
 
- router.delete("/",middlewares.rol,async (req,res)=>{
+ router.delete("/"/* ,middlewares.rol */,async (req,res)=>{
 
     /* 
         var cabecera = req.headers["user-token"];

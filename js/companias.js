@@ -1,17 +1,20 @@
 let containerListaCompanias = document.getElementById("containerListaCompanias");
 let btnAgregarCompania      = document.getElementById("btnAgregarCompania");
 let agregarCompaniaInput    = document.getElementById("agregarCompaniaInput");
+let agregarCompaniaNumero   = document.getElementById("agregarCompaniaNumero");
 //varible global en la que voy a guardar el obj de companias
 var arrayDeObjetos          = [];
 
 //esta funcion crea los divs con los contenidos del metodo get
-var creaCompania            = (comp, idComp, containerListaCompanias) => {
+var creaCompania            = (comp, idComp, containerListaCompanias,numero) => {
     containerListaCompanias.innerHTML += `<div class="row bg-dark mb-5 d-flex flex-row m-3  sombra bordeFila">
                     
     <div class="col-1 bg-dark text-light   "> 
         <button class="btn btn-outline-warning mt-3  btnBorrarCompania" value =${idComp} ><i class="fas fa-trash-alt"></i></button>
     </div>
-    <div class="col bg-dark text-light m-5   "> <h2  style="border-radius: 30px; display: flex; justify-content: center;" class="bordeFila">${comp}</h2></div>
+    <div class="col bg-dark text-light m-5   "> <h4  style="border-radius: 30px; display: flex; justify-content: center;" class="bordeFila">Compañia:    ${comp}</h4></div>
+    <div class="col bg-dark text-light m-5   "> <h4  style="border-radius: 30px; display: flex; justify-content: center;" class="bordeFila">Numero:    ${numero}</h4></div>
+
     </div>
     `
 
@@ -25,13 +28,14 @@ var recorreCompania         = (data) => {
     data.forEach(element => {
         let comp = element.compania;
         let idComp = element.id;
+        let numero = element.numero;
 
 
         //Pasa cada uno de los elemento el primer parametro es el nombre de compania
         //segundo parametro ID compania
         // Tercer paramereo el contenedor donde se van a mostrar las companias
         // esto simplemente es la funcion que hace un inner html con los parametros propiamente dichos
-        creaCompania(comp, idComp, containerListaCompanias);
+        creaCompania(comp, idComp, containerListaCompanias,numero);
 
         borrarCompania(idComp);
     });
@@ -131,7 +135,8 @@ var metodoPostAgregarCompania   = async (data, token) => {
 
 
 
-var crearCompaniaBaseDatos      = (valorInput) => {
+var crearCompaniaBaseDatos      = (valorInput,agregarCompaniaNumero) => {
+    
     // Separo lo que pongo en el input en distintos indices con una coma 
 
     let arrString = valorInput.split(",");
@@ -141,7 +146,8 @@ var crearCompaniaBaseDatos      = (valorInput) => {
 
         //Creo un objeto el indice del array espesifico
         let obj02 = {
-            compania: element
+            compania: element,
+            numero: agregarCompaniaNumero
         }
         //Aca pusheo ese indice al arra simplemente 
         arrayDeObjetos.push(obj02);
@@ -167,8 +173,9 @@ var crearCompaniaBaseDatos      = (valorInput) => {
 
 
 btnAgregarCompania.addEventListener("click", () => {
+    console.log("agregarCompaniaNumero.value",agregarCompaniaNumero.value)
 
-    metodoPostAgregarCompania(crearCompaniaBaseDatos(agregarCompaniaInput.value));
+    metodoPostAgregarCompania(crearCompaniaBaseDatos(agregarCompaniaInput.value,agregarCompaniaNumero.value));
     containerListaCompanias.innerHTML = "";
     setTimeout(() => {
         fetchCompaniasSeccion();
