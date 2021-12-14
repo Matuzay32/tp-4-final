@@ -121,7 +121,7 @@ router.get("/individual/:id", async(req,res)=>{
 });
 
 
-router.post("/",middlewares.rol,async (req,res)=>{
+router.post("/"/* ,middlewares.rol */,async (req,res)=>{
 
    /*  var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta"); */
@@ -210,7 +210,7 @@ router.post("/porImportacion",middlewares.rol,async (req,res)=>{
     res.json(contactosGuardados);
 });
 
-router.put("/",middlewares.rol,async (req,res)=>{
+router.put("/",/* middlewares.rol, */async (req,res)=>{
 
     var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -276,7 +276,7 @@ router.put("/",middlewares.rol,async (req,res)=>{
     
 });
 
-router.delete("/",middlewares.rol,async (req,res)=>{
+router.delete("/"/* ,middlewares.rol */,async (req,res)=>{
 
 
     /* var cabecera = req.headers["user-token"];

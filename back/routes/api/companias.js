@@ -24,7 +24,9 @@ router.post("/"/* ,middlewares.rol */,async (req,res)=>{
         arrCompanias.forEach(async(element) => {
             let obj ={
                 compania:element.compania,
-                numero: element.numero
+                numero: element.numero,
+                paiseId:element.paiseId
+
                 
             }
             var tablaCompanias =  await Companias.create(obj); 

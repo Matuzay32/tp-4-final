@@ -53,6 +53,7 @@ Contactos.belongsToMany(Canales, {
 });
 
 User.belongsTo(Roles);
+Companias.belongsTo(Paises);
 Contactos.belongsTo(Paises);
 Contactos.belongsTo(Provincias);
 Contactos.belongsTo(Ciudades);
