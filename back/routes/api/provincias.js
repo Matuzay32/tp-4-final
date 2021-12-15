@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 
 });
 
-router.post("/", middlewares.rol, async (req, res) => {
+router.post("/",  async (req, res) => {
 
     //var cabecera = req.headers["user-token"];
     //var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -53,7 +53,7 @@ router.get("/porPais/:paisId", async (req, res) => {
 
 });
 
-router.delete("/:provinciaId", middlewares.rol, async (req, res) => {
+router.delete("/:provinciaId",  async (req, res) => {
 
     const borrarDato = req.params.provinciaId;
     console.log("Request:", req.body);

@@ -17,7 +17,7 @@ router.get("/", async(req,res)=>{
 
 });
 
-router.post("/",middlewares.rol,async (req,res)=>{
+router.post("/",async (req,res)=>{
 
     var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -48,7 +48,7 @@ router.post("/",middlewares.rol,async (req,res)=>{
     res.json(ciudades);
 });
 
-router.put("/:ciudadId",middlewares.rol,async (req,res)=>{
+router.put("/:ciudadId",async (req,res)=>{
 
     var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -68,7 +68,7 @@ router.put("/:ciudadId",middlewares.rol,async (req,res)=>{
 });
 
 
-router.delete("/",middlewares.rol,async (req,res)=>{
+router.delete("/",async (req,res)=>{
 
     /* 
         var cabecera = req.headers["user-token"];
@@ -99,14 +99,6 @@ router.get("/porProvincia/:provinciaId", async(req,res)=>{
 
 });
    
-function esUsuarioValidoParaGestionarProducto(usuario) {
 
-    if(!usuario || usuario.rolUsuario != ROL_ADMIN) {
-        return false;
-    }
-
-    return true;
-}
-    
 
 module.exports = router;

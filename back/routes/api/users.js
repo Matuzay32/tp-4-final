@@ -5,7 +5,7 @@ const {check, validationResult} =require ("express-validator");
 const moment                    = require("moment");
 const jwt                       = require("jwt-simple");
 const { rol }                   = require("../middlewares");
-const middlewares = require("../middlewares");
+const middlewares               = require("../middlewares");
 
 
 router.get("/", async(req,res)=>{
@@ -18,7 +18,7 @@ router.get("/", async(req,res)=>{
    
 });
 
-router.post("/registrer",async (req,res)=>{
+router.post("/registrer",middlewares.rol,async (req,res)=>{
 
    
     const user =  await User.findOne({where:{

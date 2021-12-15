@@ -13,7 +13,7 @@ router.get("/", async(req,res)=>{
 
 });
 
-router.post("/",middlewares.rol,async (req,res)=>{
+router.post("/",async (req,res)=>{
 
     var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -42,7 +42,7 @@ router.post("/",middlewares.rol,async (req,res)=>{
 
 });
 
-router.put("/:paisId",middlewares.rol,async (req,res)=>{
+router.put("/:paisId",async (req,res)=>{
 
     var cabecera = req.headers["user-token"];
     var usuario =  jwt.decode(cabecera,"frase secreta");
@@ -62,7 +62,7 @@ router.put("/:paisId",middlewares.rol,async (req,res)=>{
 });
 
 
-router.delete("/",middlewares.rol,async (req,res)=>{
+router.delete("/",async (req,res)=>{
 
     /* 
         var cabecera = req.headers["user-token"];

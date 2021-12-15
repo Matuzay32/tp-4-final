@@ -66,14 +66,5 @@ router.post("/"/* ,middlewares.rol */,async (req,res)=>{
     });
 
 
-function esUsuarioValidoParaGestionarProducto(usuario) {
-
-    if(!usuario || usuario.rolUsuario != ROL_ADMIN) {
-        return false;
-    }
-
-    return true;
-}
-    
 
 module.exports = router;
