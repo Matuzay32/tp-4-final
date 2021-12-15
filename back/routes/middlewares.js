@@ -35,8 +35,8 @@ const rol = (req, res, next) => {
 	var cabecera = req.headers["user-token"];
 	var usuario = jwt.decode(cabecera, "frase secreta");
 
+
 	if (usuario.rolUsuario != 1) {
-		console.log(usuario.rolUsuario);
 		res.status(400).send(`Debe ser administador para borrar un usuario`);
 		return false;
 	}

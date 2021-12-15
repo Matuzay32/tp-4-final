@@ -43,11 +43,14 @@ var registrerPostContacto = async (data) => {
         mode: 'cors',
         cache: 'no-cache',
         credentials: 'same-origin',
-          headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json',
-     
-         }, 
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "user-token": ObtenerTokenLocalStorage(
+                "User agregados con exito",
+                "Solo el usuario con rol administrador puede crear un usuario"
+            ),
+        },
         body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
     return  response.json();
