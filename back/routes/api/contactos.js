@@ -180,7 +180,7 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.post("/porImportacion", middlewares.rol, async (req, res) => {
+router.post("/porImportacion", async (req, res) => {
 	const contactosBody = req.body;
 	const contactosGuardados = [];
 
@@ -285,12 +285,12 @@ router.delete("/", async (req, res) => {
 	res.json({ succcess: "Contacto Borrado con exito" });
 });
 
-function esUsuarioValidoParaGestionarProducto(usuario) {
-	if (!usuario || usuario.rolUsuario != ROL_ADMIN) {
-		return false;
-	}
+// function esUsuarioValidoParaGestionarProducto(usuario) {
+// 	if (!usuario || usuario.rolUsuario != ROL_ADMIN) {
+// 		return false;
+// 	}
 
-	return true;
-}
+// 	return true;
+// }
 
 module.exports = router;
