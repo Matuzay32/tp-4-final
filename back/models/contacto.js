@@ -1,23 +1,19 @@
+module.exports = (sequelize, type) => {
+	const Contactos = sequelize.define("contactos", {
+		//Creo un foegenKey Auto increment
+		id: {
+			type: type.INTEGER,
+			primaryKey: true,
+			autoIncrement: true,
+		},
 
-module.exports =(sequelize,type) =>{
-    const Contactos=  sequelize.define("contactos",{
-        //Creo un foegenKey Auto increment
-        id:{
-            type: type.INTEGER,
-            primaryKey:true,
-            autoIncrement:true
-        },
-       
-        nombre: type.STRING,
-        apellido:type.STRING,
-        cargo:type.STRING,
-        email:type.STRING,
-        direccion:type.STRING,
-        interes:type.STRING,
+		nombre: type.STRING,
+		apellido: type.STRING,
+		cargo: type.STRING,
+		email: type.STRING,
+		direccion: type.STRING,
+		interes: type.STRING,
+	});
 
-        
-       
-    })
-
-    return Contactos
-}
+	return Contactos;
+};

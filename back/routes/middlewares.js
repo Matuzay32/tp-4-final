@@ -1,57 +1,47 @@
-const jwt      = require("jwt-simple");
-const moment   = require("moment");
+const jwt = require("jwt-simple");
+const moment = require("moment");
 // Esta funcion checkea el token
-const checkToken = (req,res,next)=>{
-    //si no le pongo el token devuelve la reseña
-    if(!req.headers["user-token"])
-    {
-        return res.json({error:"Necesitas incluir el user-token en la cabecera"})
-    }
-    //obtengo el token
-const userToken = req.headers["user-token"];
-let playLoad ={};
-try{
-    //Hago uso de jwt y desencripto el token con la frase secreta
-    playLoad =jwt.decode(userToken,"frase secreta")
-   
-    
-//En caso de que este mal no va poder desencriptar por en se va porner la reseña token incorrecto
-}catch(err){
-    return res.json({error :"El token es incorrecto"});
-}
+const checkToken = (req, res, next) => {
+	//si no le pongo el token devuelve la reseña
+	if (!req.headers["user-token"]) {
+		return res.json({
+			error: "Necesitas incluir el user-token en la cabecera",
+		});
+	}
+	//obtengo el token
+	const userToken = req.headers["user-token"];
+	let playLoad = {};
+	try {
+		//Hago uso de jwt y desencripto el token con la frase secreta
+		playLoad = jwt.decode(userToken, "frase secreta");
 
-//Doy el tiempo al token
-if(playLoad.expiredAt<moment().unix()){
-    return res.json({error: "El token a expirado"})
-}
-//Aca simplemente le asigno el token al Usuario que viene como Parametro 
-req.usuarioId =playLoad.UsuarioId;
+		//En caso de que este mal no va poder desencriptar por en se va porner la reseña token incorrecto
+	} catch (err) {
+		return res.json({ error: "El token es incorrecto" });
+	}
 
-    next();
+	//Doy el tiempo al token
+	if (playLoad.expiredAt < moment().unix()) {
+		return res.json({ error: "El token a expirado" });
+	}
+	//Aca simplemente le asigno el token al Usuario que viene como Parametro
+	req.usuarioId = playLoad.UsuarioId;
 
-}
-
-
-
-
+	next();
+};
 
 // Este middleware checkea si eres administrador, 0 significa que no, 1 que si;
-const rol = (req,res ,next) =>{
+const rol = (req, res, next) => {
+	var cabecera = req.headers["user-token"];
+	var usuario = jwt.decode(cabecera, "frase secreta");
 
-    var cabecera = req.headers["user-token"];
-    var usuario =  jwt.decode(cabecera,"frase secreta"); 
+	if (usuario.rolUsuario != 1) {
+		res.status(400).send(`Debe ser administador para borrar un usuario`);
+		return false;
+	}
 
-        if(usuario.rolUsuario !=1){
-        res.status(400).send(`Debe ser administador para borrar un usuario`);
-        return false;
-    } 
-   
-
-    next();
-
-
-
-}
+	next();
+};
 
 //Este middleWare chekea si eres un Usuario // esta especialemente creado para el Chekequeo de la ruta mis pedidos
 /* const rolMisPedidos = (req,res ,next) =>{
@@ -70,10 +60,7 @@ const rol = (req,res ,next) =>{
 }
  */
 
-
-
-
-module.exports ={
-    checkToken : checkToken,
-    rol:rol,
-}
+module.exports = {
+	checkToken: checkToken,
+	rol: rol,
+};

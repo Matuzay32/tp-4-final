@@ -1,13 +1,13 @@
-module.exports =(sequelize,type) =>{
-    const Paises = sequelize.define("paises",{
-        id:{
+module.exports = (sequelize, type) => {
+    const Paises = sequelize.define("paises", {
+        id: {
             type: type.INTEGER,
-            primaryKey:true,
-            autoIncrement:true
+            primaryKey: true,
+            autoIncrement: true
         },
-       
+
         pais: type.STRING,
-      
+
     })
 
 
