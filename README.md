@@ -49,6 +49,9 @@ También  debe descargar he instalar XAMPP para poder inicializar la base de dat
 
 #### Base de datos
 
+LA BASE DE DATOS SE ENCUENTRA EN LA CARPETA (BASE DE DATOS)
+
+IMPORTANTE: LA BASE DE DATOS DEBE LLAMARSE datawarehouse
 
 A MODO DE RECOMENDACION PARA AHORRARLE TIEMPO UTILICE LA BASE DE DATOS PROVISTA EN LA CARPETA YA QUE TIENE CREADO UN USUARIO DE ROL DE ADMINISTRADOR, PARA PODER CREAR OTROS USUARIOS. 
 TAMBIEN TIENE  PAISES, PROVINCIAS, CIUDADES, Y COPAÑIAS AGREGADAS.
@@ -95,7 +98,7 @@ tiene que generar los canales whatsAPP Instagram
 ## EXPORTAR IMPORTAR CONTACTOS
 
 Se le va a proporcionar  un excel con contactos para porder importarlos a la base de datos de forma masiva,
-dato importante, tiene que tener el mismo formato y los mails deben ser distintos entre si para poder realizar la operacion con exito.
+datos importante, tiene que tener el mismo formato y los mails deben ser distintos entre si para poder realizar la operacion con exito.
 
 Al exportar un contacto si lo quiere poder enviar a la base nuevamente guardelo en un version de excel distinta a la que se guarda por defecto, cuanto mas nueva mejor.
 
@@ -103,17 +106,10 @@ Como recomendacion exporte el contacto que quiera pero borrelo de la base luego 
 
 para ahorrarse todo ese tiempo utilice el excel que se le va a proporcionar en la carpeta.
 
+
+IMPORTANTE: EL EXCEL SE ENCUENTRA EN LA CARPETA (CONTACTOS EXCEL)
+
 ----------
-## End points
-
-
-
-
-
-
-
-
-
 
 
 
